@@ -1,0 +1,15 @@
+{
+  "name": "parser4data",
+  "version": "0.0.1",
+  "description": "The C++ interface make it sure that much transforming in cpu computing wont't block function invokes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@pkgo.in:itg/parser4data.git"
+  },
+  "author": "iofanyer",
+  "license": "ISC"
+}
