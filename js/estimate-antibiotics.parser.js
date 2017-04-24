@@ -7,6 +7,12 @@
  */
 import configTpl from '../../lib/default-config/estimate-antibiotics.config'
 
+
+  /*seagreen   #00ab84*/
+  /*orange   #e4be6f*/
+  /*salmon   #cb8d88*/
+
+
 export function parse(input) {
     let output = {};
 
@@ -36,8 +42,8 @@ export function parse(input) {
         let absolute = input[e][2];
 
         let color = (rank < 0.75 ?
-            "seagreen" : (rank < 0.9 ?
-                "orange" : "salmon"));
+            "#00ab84" : (rank < 0.9 ?
+                "#e4be6f" : "#cb8d88"));
 
         return {
             "x": configTpl.top[i].x,
@@ -66,8 +72,8 @@ export function parse(input) {
         let absolute = input[e][2];
 
         let color = (rank < 0.75 ?
-            "seagreen" : (rank < 0.9 ?
-                "orange" : "salmon"));
+            "#00ab84" : (rank < 0.9 ?
+                "#e4be6f" : "#cb8d88"));
 
         return {
             "x": configTpl.bottom[i].x,
@@ -90,19 +96,29 @@ export function parse(input) {
 
 
     // calculate the gap
-    let gap = [];
-    console.log(gap)
+    let seagreen = 0
+    let orange = 0
+    let salmon = 0;
+    [...top, ...bottom].map((e, i) => {
+        if (e.color === '#00ab84') seagreen += 1
+        if (e.color === '#e4be6f') orange += 1
+        if (e.color === '#cb8d88') salmon += 1
+    })
+
+    let gap = [seagreen, orange, salmon];
+
+
 
     output = {
         "top": top,
         "bottom": bottom,
-        "gap": [0, 4]
+        "gap": gap
     };
 
     return output;
 }
 
-const standard=[75,90];
+const standard = [75, 90];
 
 
 // arr should be ascended, here is ascended input
@@ -127,7 +143,7 @@ function firstRed(arr) {
     }
 
     for (var i = 0; i < arr.length; i++) {
-      arr[i]
+        arr[i]
     }
 
 }
