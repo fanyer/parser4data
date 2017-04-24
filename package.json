@@ -2,7 +2,7 @@
     "name": "parser4data",
     "version": "0.0.1",
     "description": "The C++ interface make it sure that much transforming in cpu computing wont't block function invokes.",
-    "main": "index.js",
+    "main": "bin/parser4data.rollup.js",
     "scripts": {
         "build:rollup": "rollup -c rollup.config.js",
         "test": "echo \"Error: no test specified\" && exit 1"
