@@ -8,7 +8,7 @@ For small overhead transform, it may also be realized by raw js.
 Toolchain is various scripts for maintaining.
 
 
-### antibioticsParser.parse()
+### antibioticsParse()
 ```
 import {antibioticsParse} from 'parser4data'
 
@@ -35,7 +35,7 @@ antibioticsParser(rawData)
 
 
 ```
-### linkParser.parse()
+### linkParse()
 ```
 import {linkParse} from 'parser4data'
 
