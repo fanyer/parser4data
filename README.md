@@ -10,9 +10,9 @@ Toolchain is various scripts for maintaining.
 
 ### antibioticsParser.parse()
 ```
-import {antibioticsParser} from 'parser4data'
+import {antibioticsParse} from 'parser4data'
 
-antibioticsParser.parse(rawData)
+antibioticsParser(rawData)
 
 //rawData is something like
 [
@@ -37,9 +37,9 @@ antibioticsParser.parse(rawData)
 ```
 ### linkParser.parse()
 ```
-import {linkParser} from 'parser4data'
+import {linkParse} from 'parser4data'
 
-linkParser.parse(rawData)
+linkParse(rawData)
 
 //rawData is something like
 {
