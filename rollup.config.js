@@ -12,7 +12,7 @@ var banner =
 
 export default {
     entry: 'index.js',
-    dest: 'bin/data2graphics.rollup.js',
+    dest: 'bin/parser4data.rollup.js',
     banner: banner,
     moduleName: 'parser4data',
     format: 'umd',
