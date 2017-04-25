@@ -5,7 +5,7 @@
  *                        
  * @return {[type]}       [description]
  */
-import configTpl from '../../lib/default-config/estimate-antibiotics.config'
+import configTpl from '../default-config/estimate-antibiotics.config'
 
 
   /*seagreen   #00ab84*/
@@ -38,8 +38,8 @@ export function parse(input) {
         let cn = input[e][0];
         let en = input[e][4];
         let rank = input[e][3] / 100;
-        let median = input[e][1];
-        let absolute = input[e][2];
+        let median = input[e][2];
+        let absolute = input[e][1];
 
         let color = (rank < 0.75 ?
             "#00ab84" : (rank < 0.9 ?
@@ -68,8 +68,8 @@ export function parse(input) {
         let cn = input[e][0];
         let en = input[e][4];
         let rank = input[e][3] / 100;
-        let median = input[e][1];
-        let absolute = input[e][2];
+        let median = input[e][2];
+        let absolute = input[e][1];
 
         let color = (rank < 0.75 ?
             "#00ab84" : (rank < 0.9 ?
