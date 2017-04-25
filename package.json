@@ -1,32 +1,34 @@
 {
-    "name": "parser4data",
-    "version": "0.0.1",
-    "description": "The C++ interface make it sure that much transforming in cpu computing wont't block function invokes.",
-    "main": "bin/parser4data.rollup.js",
-    "scripts": {
-        "build:rollup": "rollup -c rollup.config.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@pkgo.in:itg/parser4data.git"
-    },
-    "dependencies": {
-        "babel-core": "^6.22.1",
-        "babel-loader": "^6.2.10",
-        "babel-runtime": "^6.23.0",
-        "css-loader": "0.26.1",
-        "d3-array": "^1.0.1",
-        "d3-format": "^1.0.2",
-        "d3-sankey": "git+ssh://git@pkgo.in:fanyer/d3-sankey-custom.git",
-        "d3-scale": "^1.0.3",
-        "extract-text-webpack-plugin": "^1.0.1",
-        "jquery": "^3.1.1",
-        "react": "^15.4.2",
-        "react-native-webrtc": "^1.54.7",
-        "style-loader": "0.13.1",
-        "webpack": "^1.14.0"
-    },
-    "author": "iofanyer",
-    "license": "ISC"
+  "name": "parser4data",
+  "version": "0.0.1",
+  "description": "The C++ interface make it sure that much transforming in cpu computing wont't block function invokes.",
+  "main": "bin/parser4data.rollup.js",
+  "scripts": {
+    "build:rollup": "rollup -c rollup.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@pkgo.in:itg/parser4data.git"
+  },
+  "dependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-runtime": "^6.23.0",
+    "css-loader": "0.26.1",
+    "d3-array": "^1.0.1",
+    "d3-format": "^1.0.2",
+    "d3-sankey": "git+ssh://git@pkgo.in:fanyer/d3-sankey-custom.git",
+    "d3-scale": "^1.0.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "jquery": "^3.1.1",
+    "react": "^15.4.2",
+    "react-native-webrtc": "^1.54.7",
+    "rollup-plugin-babel": "^2.7.1",
+    "style-loader": "0.13.1",
+    "webpack": "^1.14.0"
+  },
+  "author": "iofanyer",
+  "license": "ISC"
 }
