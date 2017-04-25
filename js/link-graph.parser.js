@@ -1,6 +1,6 @@
-import { linkGraphConfig } from '../../lib/default-config/guide-goodness.config'
-import { sql } from '../../lib/utils/sql'
-import { clone2 } from '../../lib/utils/clone'
+import { linkGraphConfig } from '../default-config/guide-goodness.config'
+import { sql } from './utils/sql'
+import { clone2 } from './utils/clone'
 
 
 //  right rect #b5d8e1
