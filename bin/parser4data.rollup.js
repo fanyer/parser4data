@@ -816,6 +816,10 @@ function clone2(arr) {
   return Object.assign([], arr);
 }
 
+/*seagreen   #00ab84*/
+/*orange   #e4be6f*/
+/*salmon   #cb8d88*/
+
 //  right rect #b5d8e1
 function parse$1(rawData) {
     var input = rawData.left;
@@ -834,6 +838,11 @@ function parse$1(rawData) {
     //     .domain(colorsA)
     //     .range([5,8,10]);
 
+    var linkValues = {
+        '#00ab84': 3,
+        '#e4be6f': 6,
+        '#cb8d88': 9
+    };
 
     input.map(function (E, I) {
 
@@ -847,7 +856,8 @@ function parse$1(rawData) {
 
             e.color = E.color;
 
-            e.strokeWidth = (colorsA.indexOf(E.color) + 1) * 3;
+            // e.strokeWidth = (colorsA.indexOf(E.color)+1)*3
+            e.strokeWidth = linkValues[E.color];
         });
 
         for (var i = 0; i < linksFinded.length; i++) {

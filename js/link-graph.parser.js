@@ -3,6 +3,11 @@ import { sql } from './utils/sql'
 import { clone2 } from './utils/clone'
 
 
+/*seagreen   #00ab84*/
+/*orange   #e4be6f*/
+/*salmon   #cb8d88*/
+
+
 //  right rect #b5d8e1
 export function parse(rawData) {
     let input = rawData.left;
@@ -21,6 +26,12 @@ export function parse(rawData) {
     //     .domain(colorsA)
     //     .range([5,8,10]);
 
+    let linkValues={
+        '#00ab84':3,
+        '#e4be6f':6,
+        '#cb8d88':9
+    }
+
 
     input.map((E, I) => {
 
@@ -34,7 +45,9 @@ export function parse(rawData) {
 
             e.color = E.color
 
-            e.strokeWidth = (colorsA.indexOf(E.color)+1)*3
+
+            // e.strokeWidth = (colorsA.indexOf(E.color)+1)*3
+            e.strokeWidth = linkValues[E.color]
         })
 
         for (var i = 0; i < linksFinded.length; i++) {
