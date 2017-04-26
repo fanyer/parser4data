@@ -817,7 +817,6 @@ function clone2(arr) {
 }
 
 //  right rect #b5d8e1
-
 function parse$1(rawData) {
     var input = rawData.left;
 
@@ -829,12 +828,26 @@ function parse$1(rawData) {
 
     var links = [];
 
+    var colorsA = [];
+
+    // let linkValues = d3.scale()
+    //     .domain(colorsA)
+    //     .range([5,8,10]);
+
+
     input.map(function (E, I) {
 
         var linksFinded = sql(linkGraphConfig.links).Query('@source==' + I);
 
         linksFinded.forEach(function (e, i) {
+
+            if (colorsA.indexOf(E.color) === -1) {
+                colorsA.push(E.color);
+            }
+
             e.color = E.color;
+
+            e.strokeWidth = (colorsA.indexOf(E.color) + 1) * 3;
         });
 
         for (var i = 0; i < linksFinded.length; i++) {

@@ -4,11 +4,10 @@ import { clone2 } from './utils/clone'
 
 
 //  right rect #b5d8e1
-
 export function parse(rawData) {
     let input = rawData.left;
 
-    let nodes=clone2(linkGraphConfig.nodes);
+    let nodes = clone2(linkGraphConfig.nodes);
 
     input.map((e, i) => {
         nodes[i].color = e.color;
@@ -16,12 +15,26 @@ export function parse(rawData) {
 
     let links = []
 
+    let colorsA=[];
+
+    // let linkValues = d3.scale()
+    //     .domain(colorsA)
+    //     .range([5,8,10]);
+
+
     input.map((E, I) => {
 
         let linksFinded = sql(linkGraphConfig.links).Query('@source==' + I)
 
         linksFinded.forEach((e, i) => {
+
+            if(colorsA.indexOf(E.color)===-1){
+                colorsA.push(E.color)
+            }
+
             e.color = E.color
+
+            e.strokeWidth = (colorsA.indexOf(E.color)+1)*3
         })
 
         for (var i = 0; i < linksFinded.length; i++) {
@@ -30,6 +43,7 @@ export function parse(rawData) {
 
 
     })
+
 
 
     return {
