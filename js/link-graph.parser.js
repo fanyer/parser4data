@@ -27,8 +27,8 @@ export function parse(rawData) {
     //     .range([5,8,10]);
 
     let linkValues={
-        '#00ab84':3,
-        '#e4be6f':6,
+        '#00ab84':5,
+        '#e4be6f':5,
         '#cb8d88':9
     }
 
