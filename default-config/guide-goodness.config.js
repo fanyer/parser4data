@@ -1,14 +1,13 @@
 export const curveGraphConfig = {
     'standard': {
         'min': -25,
-        '过低': -20,
-        '偏低': -10,
-        '正常': 0,
-        '偏高': 10,
-        '过高': 20,
+        '过低': [-20,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6],
+        '偏低': [-12,-10,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6],
+        '正常': [0,8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6],
+        '偏高': [5,0,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6],
+        '过高': [20,4,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6],
         'max': 25
     },
-
     'data': {
         '维生素A': 16,
         '维生素B1': 19,
@@ -28,6 +27,7 @@ export const curveGraphConfig = {
         '维生素K': -7
     }
 };
+
 
 
 export const linkGraphConfig = {
@@ -74,8 +74,6 @@ export const linkGraphConfig = {
     }, {
         "name": "水果类"
     }, {
-        "name": "人体肠道自主合成"
-    }, {
         "name": "坚果类"
     }, {
         "name": "发酵食物类"
@@ -88,133 +86,94 @@ export const linkGraphConfig = {
     }],
     "links": [{
         "source": 0,
-        "target": 22,
-        "color": "cyan",
+        "target": 22 - 1,
         "value": 5
     }, {
-        "source": 0,
-        "target": 21,
-        "color": "cyan",
-        "value": 5
-    }, {
+
         "source": 1,
         "target": 18,
-        "color": "khaki",
         "value": 5
     }, {
+
         "source": 1,
-        "target": 21,
-        "color": "khaki",
-        "value": 5
-    }, {
-        "source": 1,
-        "target": 23,
-        "color": "khaki",
+        "target": 23 - 1,
         "value": 5
     }, {
         "source": 2,
         "target": 16,
-        "color": "steelblue",
         "value": 5
     }, {
         "source": 2,
-        "color": "steelblue",
-        "target": 20,
+        "target": 20 - 1,
+        "value": 5
+    }, {
+
+        "source": 2,
+        "target": 25 - 1,
         "value": 5
     }, {
         "source": 2,
-        "target": 21,
-        "color": "steelblue",
-        "value": 5
-    }, {
-        "source": 2,
-        "target": 25,
-        "color": "steelblue",
-        "value": 5
-    }, {
-        "source": 2,
-        "target": 23,
-        "color": "steelblue",
+        "target": 23 - 1,
         "value": 5
     }, {
         "source": 3,
-        "color": "salmon",
-        "target": 25,
+        "target": 25 - 1,
         "value": 5
     }, {
         "source": 3,
-        "color": "salmon",
-        "target": 20,
+        "target": 20 - 1,
         "value": 5
     }, {
-        "source": 3,
-        "target": 21,
-        "color": "salmon",
-        "value": 5
-    }, {
-        "color": "orange",
+
         "source": 4,
         "target": 16,
         "value": 5
     }, {
-        "source": 4,
-        "target": 21,
-        "color": "orange",
-        "value": 5
-    }, {
+
         "source": 4,
         "target": 17,
         "value": 5
     }, {
         "source": 4,
-        "target": 22,
+        "target": 22 - 1,
         "value": 5
     }, {
         "source": 4,
-        "target": 23,
+        "target": 23 - 1,
         "value": 5
     }, {
-        "source": 5,
-        "target": 21,
-        "color": "steelblue",
-        "value": 5
-    }, {
+
         "source": 5,
         "target": 17,
         "value": 5
     }, {
         "source": 5,
-        "target": 24,
+        "target": 24 - 1,
         "value": 5
     }, {
         "source": 5,
-        "target": 22,
+        "target": 22 - 1,
         "value": 5
     }, {
         "source": 6,
         "target": 20,
-        "color": "steelblue",
         "value": 5
     }, {
         "source": 6,
         "target": 19,
         "value": 5
     }, {
+
         "source": 6,
-        "target": 21,
+        "target": 22 - 1,
         "value": 5
     }, {
         "source": 6,
-        "target": 22,
-        "value": 5
-    }, {
-        "source": 6,
-        "target": 24,
+        "target": 24 - 1,
         "value": 5
     }, {
         "source": 7,
         "target": 17,
-        "color": "steelblue",
         "value": 5
     }, {
         "source": 7,
@@ -225,34 +184,26 @@ export const linkGraphConfig = {
         "target": 20,
         "value": 5
     }, {
+
         "source": 7,
-        "target": 21,
-        "color": "steelblue",
-        "value": 5
-    }, {
-        "source": 7,
-        "target": 24,
+        "target": 24 - 1,
         "value": 5
     }, {
         "source": 8,
         "target": 20,
-        "color": "steelblue",
+        "value": 5
+    }, {
+
+        "source": 8,
+        "target": 22 - 1,
         "value": 5
     }, {
         "source": 8,
-        "target": 21,
+        "target": 23 - 1,
         "value": 5
     }, {
         "source": 8,
-        "target": 22,
-        "value": 5
-    }, {
-        "source": 8,
-        "target": 23,
-        "value": 5
-    }, {
-        "source": 8,
-        "target": 24,
+        "target": 24 - 1,
         "value": 5
     }, {
         "source": 9,
@@ -261,17 +212,13 @@ export const linkGraphConfig = {
     }, {
         "source": 9,
         "target": 19,
-        "color": "steelblue",
         "value": 5
     }, {
         "source": 9,
         "target": 20,
         "value": 5
     }, {
-        "source": 9,
-        "target": 21,
-        "value": 5
-    }, {
+
         "source": 10,
         "target": 19,
         "value": 5
@@ -280,16 +227,14 @@ export const linkGraphConfig = {
         "target": 20,
         "value": 5
     }, {
+
+
         "source": 10,
-        "target": 21,
+        "target": 23 - 1,
         "value": 5
     }, {
         "source": 10,
-        "target": 23,
-        "value": 5
-    }, {
-        "source": 10,
-        "target": 26,
+        "target": 26 - 1,
         "value": 5
     }, {
         "source": 11,
@@ -300,10 +245,6 @@ export const linkGraphConfig = {
         "target": 20,
         "value": 5
     }, {
-        "source": 11,
-        "target": 21,
-        "value": 5
-    }, {
         "source": 12,
         "target": 17,
         "value": 5
@@ -314,76 +255,56 @@ export const linkGraphConfig = {
     }, {
         "source": 12,
         "target": 19,
-        "color": "steelblue",
         "value": 5
     }, {
         "source": 12,
         "target": 20,
-        "color": "steelblue",
         "value": 5
     }, {
         "source": 12,
-        "target": 21,
-        "color": "steelblue",
+        "target": 22 - 1,
         "value": 5
     }, {
         "source": 12,
-        "target": 22,
-        "color": "steelblue",
+        "target": 24 - 1,
         "value": 5
     }, {
         "source": 12,
-        "target": 24,
-        "color": "steelblue",
+        "target": 25 - 1,
         "value": 5
     }, {
         "source": 12,
+        "target": 26 - 1,
+        "value": 5
+    }, {
+        "source": 13,
+        "target": 17,
+        "value": 5
+    }, {
+        "source": 13,
+        "target": 19,
+        "value": 5
+    }, {
+        "source": 13,
+        "target": 20,
+        "value": 5
+    }, {
+
+
+        //     "source": 14,
+        //     "target": 16,
+        //     "value": 5
+        // }, {
+        //     "source": 14,
+        //     "target": 18,
+        //     "value": 5
+        // }, {
+        //     "source": 14,
+        //     "target": 20,
+        //     "value": 5
+        // }, {
+        "source": 14,
         "target": 25,
-        "color": "steelblue",
-        "value": 5
-    }, {
-        "source": 12,
-        "target": 26,
-        "color": "steelblue",
-        "value": 5
-    }, {
-        "source": 13,
-        "target": 17,
-        "color": "steelblue",
-        "value": 5
-    }, {
-        "source": 13,
-        "target": 19,
-        "value": 5
-    }, {
-        "source": 13,
-        "target": 20,
-        "value": 5
-    }, {
-        "source": 13,
-        "target": 21,
-        "value": 5
-    }, {
-        "source": 14,
-        "target": 16,
-        "value": 5
-    }, {
-        "source": 14,
-        "target": 18,
-        "value": 5
-    }, {
-        "source": 14,
-        "target": 20,
-        "value": 5
-    }, {
-        "source": 14,
-        "target": 21,
-        "color": "steelblue",
-        "value": 5
-    }, {
-        "source": 14,
-        "target": 23,
-        "color": "steelblue",
         "value": 5
     }, {
         "source": 15,
@@ -391,19 +312,17 @@ export const linkGraphConfig = {
         "value": 5
     }, {
         "source": 15,
-        "target": 20,
+        "target": 20 - 1,
+        "value": 5
+    }, {
+
+
+        "source": 15,
+        "target": 22 - 1,
         "value": 5
     }, {
         "source": 15,
-        "target": 21,
-        "value": 5
-    }, {
-        "source": 15,
-        "target": 22,
-        "value": 5
-    }, {
-        "source": 15,
-        "target": 24,
+        "target": 24 - 1,
         "value": 5
     }]
 }
