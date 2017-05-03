@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 # coding:utf-8
+File.open('mocks-data/antibiotics.json').read
 
 
 # While this creates a new default object each time
