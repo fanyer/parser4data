@@ -4,6 +4,8 @@
 
 using namespace std;
 
+
+
 namespace data2graphics
 {
 
@@ -40,6 +42,7 @@ namespace data2graphics
     };
 
 
+
     void Parse(const FunctionCallbackInfo<Value> &args)
     {
         Isolate *isolate = args.GetIsolate();
@@ -55,6 +58,35 @@ namespace data2graphics
 
         args.GetReturnValue().Set(obj);
     }
+
+    
+    NAN_METHOD(PassObject) {
+        if ( info.Length() > 0 ) {
+            Local<Object> input = info[0]->ToObject();
+            
+            // Make property names to access the input object
+            Local<String> x_prop = Nan::New<String>("x").ToLocalChecked();
+            Local<String> y_prop = Nan::New<String>("y").ToLocalChecked();
+            Local<String> sum_prop = Nan::New<String>("sum").ToLocalChecked();
+            Local<String> product_prop = Nan::New<String>("product").ToLocalChecked();
+
+            // create the return object
+            Local<Object> retval = Nan::New<Object>();
+            
+            // pull x and y out of the input.  We'll get NaN if these weren't set, 
+            // or if x / y aren't able to be converted to numbers.
+            double x = Nan::Get(input, x_prop).ToLocalChecked()->NumberValue();
+            double y = Nan::Get(input, y_prop).ToLocalChecked()->NumberValue();
+          
+            // set the properties on the return object
+            Nan::Set(retval, sum_prop, Nan::New<Number>(x+y));
+            Nan::Set(retval, product_prop, Nan::New<Number>(x*y));
+            
+            info.GetReturnValue().Set(retval);
+        }
+    }
+
+
 
     void init(Local<Object> exports)
     {
