@@ -1,8 +1,11 @@
 #include "iostream"
 #include "string"
 #include "node.h"
+#include "nan"
 
 using namespace std;
+using namespace Nan;
+using namespace v8;
 
 
 
@@ -59,38 +62,111 @@ namespace data2graphics
         args.GetReturnValue().Set(obj);
     }
 
-    
-    NAN_METHOD(PassObject) {
-        if ( info.Length() > 0 ) {
+
+    NAN_METHOD(PassObject)
+    {
+        if ( info.Length() > 0 )
+        {
             Local<Object> input = info[0]->ToObject();
-            
+
             // Make property names to access the input object
-            Local<String> x_prop = Nan::New<String>("x").ToLocalChecked();
-            Local<String> y_prop = Nan::New<String>("y").ToLocalChecked();
-            Local<String> sum_prop = Nan::New<String>("sum").ToLocalChecked();
-            Local<String> product_prop = Nan::New<String>("product").ToLocalChecked();
+            Local<String> left_prop = Nan::New<String>("left").ToLocalChecked();
 
             // create the return object
             Local<Object> retval = Nan::New<Object>();
-            
-            // pull x and y out of the input.  We'll get NaN if these weren't set, 
+
+            // pull x and y out of the input.  We'll get NaN if these weren't set,
             // or if x / y aren't able to be converted to numbers.
             double x = Nan::Get(input, x_prop).ToLocalChecked()->NumberValue();
             double y = Nan::Get(input, y_prop).ToLocalChecked()->NumberValue();
-          
+
             // set the properties on the return object
-            Nan::Set(retval, sum_prop, Nan::New<Number>(x+y));
-            Nan::Set(retval, product_prop, Nan::New<Number>(x*y));
-            
+            Nan::Set(retval, sum_prop, Nan::New<Number>(x + y));
+            Nan::Set(retval, product_prop, Nan::New<Number>(x * y));
+
+            info.GetReturnValue().Set(retval);
+        }
+    }
+
+    NAN_METHOD(antibioticsParse)
+    {
+        if ( info.Length() > 0 )
+        {
+            Local<Object> input = info[0]->ToObject();
+
+            // Make property names to access the input object
+            Local<String> left_prop = Nan::New<String>("left").ToLocalChecked();
+
+            // create the return object
+            Local<Object> retval = Nan::New<Object>();
+
+            // pull x and y out of the input.  We'll get NaN if these weren't set,
+            // or if x / y aren't able to be converted to numbers.
+            double x = Nan::Get(input, x_prop).ToLocalChecked()->NumberValue();
+            double y = Nan::Get(input, y_prop).ToLocalChecked()->NumberValue();
+
+            // set the properties on the return object
+            Nan::Set(retval, sum_prop, Nan::New<Number>(x + y));
+            Nan::Set(retval, product_prop, Nan::New<Number>(x * y));
+
+            info.GetReturnValue().Set(retval);
+        }
+    }
+
+    NAN_METHOD(linkParse)
+    {
+        if ( info.Length() > 0 )
+        {
+            Local<Object> input = info[0]->ToObject();
+
+            // Make property names to access the input object
+            Local<String> left_prop = Nan::New<String>("left").ToLocalChecked();
+            Local<String> nodes_prop = Nan::New<String>("nodes").ToLocalChecked();
+            Local<String> links_prop = Nan::New<String>("links").ToLocalChecked();
+
+            // create the return object
+            Local<Object> retval = Nan::New<Object>();
+
+            // pull x and y out of the input.  We'll get NaN if these weren't set,
+            // or if x / y aren't able to be converted to numbers.
+            double x = Nan::Get(input, x_prop).ToLocalChecked()->NumberValue();
+            double y = Nan::Get(input, y_prop).ToLocalChecked()->NumberValue();
+
+            // set the properties on the return object
+            Nan::Set(retval, nodes_prop, Nan::New<Number>(x + y));
+            Nan::Set(retval, links_prop, Nan::New<Number>(x + y));
+
+            Nan::Set(retval, sum_prop, Nan::New<Number>(x + y));
+            Nan::Set(retval, product_prop, Nan::New<Number>(x * y));
+
             info.GetReturnValue().Set(retval);
         }
     }
 
 
 
-    void init(Local<Object> exports)
+    // void init(Local<Object> exports)
+    // {
+    //     NODE_SET_METHOD(exports, "parse", Parse);
+    // }
+
+    NAN_MODULE_INIT(Init)
     {
-        NODE_SET_METHOD(exports, "parse", Parse);
+
+        Nan::Set(target, New<String>("pass_object").ToLocalChecked(),
+                 GetFunction(New<FunctionTemplate>(PassObject)).ToLocalChecked());
+
+        Nan::Set(target, New<String>("linkParse").ToLocalChecked(),
+                 GetFunction(New<FunctionTemplate>(linkParse)).ToLocalChecked());
+
+        Nan::Set(target, New<String>("antibioticsParse").ToLocalChecked(),
+                 GetFunction(New<FunctionTemplate>(antibioticsParse)).ToLocalChecked());
+
+        Nan::Set(target, New<String>("pass_array").ToLocalChecked(),
+                 GetFunction(New<FunctionTemplate>(IncrementArray)).ToLocalChecked());
+
+        Nan::Set(target, New<String>("add_array").ToLocalChecked(),
+                 GetFunction(New<FunctionTemplate>(AddArray)).ToLocalChecked());
     }
 
 
