@@ -117,29 +117,65 @@ namespace data2graphics
     {
         if ( info.Length() > 0 )
         {
+            /**
+             * for params and return value
+             */
             Local<Object> input = info[0]->ToObject();
 
-            // Make property names to access the input object
             Local<String> left_prop = Nan::New<String>("left").ToLocalChecked();
+
+            Local<String> name_prop = Nan::New<String>("name").ToLocalChecked();
+            Local<String> color_prop = Nan::New<String>("color").ToLocalChecked();
+
             Local<String> nodes_prop = Nan::New<String>("nodes").ToLocalChecked();
             Local<String> links_prop = Nan::New<String>("links").ToLocalChecked();
 
-            // create the return object
+
+
+
+            // double a = Nan::Get(input, a_prop).ToLocalChecked()->NumberValue();
+            // Local<String> nodes_prop = Nan::New<String>("nodes").ToLocalChecked();
+            Local<Array> nodes = Local<Array>::Cast(Nan::Get(input, left_prop).ToLocalChecked());
+
+
+
             Local<Object> retval = Nan::New<Object>();
 
-            // pull x and y out of the input.  We'll get NaN if these weren't set,
-            // or if x / y aren't able to be converted to numbers.
-            double x = Nan::Get(input, x_prop).ToLocalChecked()->NumberValue();
-            double y = Nan::Get(input, y_prop).ToLocalChecked()->NumberValue();
+
+            for (unsigned int i = 0; i < nodes->Length(); i++ )
+            {
+                if (Nan::Has(nodes, i).FromJust())
+                {
+                    // get data from a particular index
+                    Local<Object> item = Nan::Get(nodes, i).ToLocalChecked()->ToObject();
+
+                    Local<String> name_value = Nan::Get(item, name_prop ).ToLocalChecked()->ToString();
+                    Local<String> color_value = Nan::Get(item, color_prop ).ToLocalChecked()->ToString();
+
+                    v8::String::Utf8Value name_val(name_value->ToString());
+                    v8::String::Utf8Value color_val(color_value->ToString());
+
+                    std::string n_str (*name_val);
+                    std::string c_str (*color_val);
+
+
+                    // cout << n_str << endl;
+                    // cout << c_str << endl;
+
+                    // set a particular index - note the array parameter
+                    // is mutable
+                    // Nan::Set(nodes, i, Nan::New<Number>(value + a));
+                }
+            }
+
+            string a_str = "xzcdafca";
 
             // set the properties on the return object
-            Nan::Set(retval, nodes_prop, Nan::New<Number>(x + y));
-            Nan::Set(retval, links_prop, Nan::New<Number>(x + y));
-
-            Nan::Set(retval, sum_prop, Nan::New<Number>(x + y));
-            Nan::Set(retval, product_prop, Nan::New<Number>(x * y));
+            Nan::Set(retval, nodes_prop, Nan::New<String>(a_str.c_str()).ToLocalChecked());
+            Nan::Set(retval, links_prop, Nan::New<Number>(12));
 
             info.GetReturnValue().Set(retval);
+
         }
     }
 
