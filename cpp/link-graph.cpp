@@ -7,6 +7,7 @@ using namespace std;
 using namespace Nan;
 using namespace v8;
 
+int ParseJsonFromFile(const char *filename)
 
 /**
  * miloyip
@@ -67,3 +68,39 @@ NAN_MODULE_INIT(Init)
 }
 
 NODE_MODULE(my_addon, Init)
+
+
+
+
+int ParseJsonFromFile(const char *filename)
+{
+    Json::Reader reader;
+    Json::Value root;
+
+    std::ifstream is;
+    is.open (filename, std::ios::binary );
+    if (reader.parse(is, root))
+    {
+        std::string code;
+        if (!root["files"].isNull())  // Access an object value by name, create a null member if it does not exist.
+            code = root["uploadid"].asString();
+
+        // Return the member named key if it exist, defaultValue otherwise.
+        code = root.get("uploadid", "null").asString();
+
+        int file_size = root["files"].size();
+
+        for(int i = 0; i < file_size; ++i)
+        {
+            Json::Value val_image = root["files"][i]["images"];
+            int image_size = val_image.size();
+            for(int j = 0; j < image_size; ++j)
+            {
+                std::string type = val_image[j]["type"].asString();
+                std::string url = val_image[j]["url"].asString();
+            }
+        }
+    }
+    is.close();
+    return 0;
+}
