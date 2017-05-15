@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     top: [{
         x: -7,
         y: 5,
