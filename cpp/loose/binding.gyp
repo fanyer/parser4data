@@ -6,7 +6,7 @@
         'target_name': 'link',
         'win_delay_load_hook': 'true',
         'type': 'none',
-        'sources': ['parser.cpp'],
+        'sources': ['link.parser.cpp'],
         'cglags':[],
         'cglags!':[],
         "include_dirs" : [
