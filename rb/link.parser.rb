@@ -23,6 +23,7 @@ linkValues={
 }
 
 
+
 output=Hash.new("default")
 
 arrN=[]
@@ -41,6 +42,7 @@ input.map.with_index { |elem,index|
 
     e["color"]=elem["color"]
 
+    # for consistency, here no to_sym
     e["strokewidth"]=linkValues[elem["color"]]
 
     for i in 0...linksFinded.length
