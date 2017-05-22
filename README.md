@@ -7,6 +7,8 @@ For small overhead transform, it may also be realized by raw js.
 
 Toolchain is various scripts for maintaining.
 
+In addition, if you have a will to add your own parser no matter how you realize it, it's a must that all features' tests've been ran through(here uses tap).
+
 
 ### antibioticsParse()
 ```
