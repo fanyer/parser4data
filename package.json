@@ -2,7 +2,7 @@
   "name": "parser4data",
   "version": "0.0.1",
   "description": "The C++ interface make it sure that much transforming in cpu computing wont't block function invokes.",
-  "main": "bin/parser4data.rollup.js",
+  "main": "bin/parser4data.js",
   "scripts": {
     "build:rollup": "rollup -c rollup.config.js",
     "test": "tap js/test/index.js"
@@ -30,7 +30,7 @@
     "webpack": "^1.14.0"
   },
   "author": "iofanyer",
-  "license": "ISC",
+  "license": "Apache 2.0",
   "devDependencies": {
     "tap": "^10.3.2"
   }
