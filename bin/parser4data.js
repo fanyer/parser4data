@@ -43,4 +43,13 @@ let cmdStr3 = 'ruby ../rb/index.rb';
 
 output = execSync(cmdStr3);
 
-module.exports = JSON.parse(output.toString())
+// module.exports = JSON.parse(output.toString())
+module.exports = {
+    linkParse: function(rawData) {
+      execSync(cmdStr3)
+      console.log(rawData)
+    },
+    antibioticsParse: function(rawData) {
+      execSync(cmdStr3)
+    }
+}
