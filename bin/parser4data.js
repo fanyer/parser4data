@@ -16,40 +16,38 @@
  *   limitations under the License.
  */
 
+const http = require('http');
+
 const execSync = require('child_process').execSync;
-// let cmdStr = 'cat parser4data.rollup.js | wc -l';
-let cmdStr1 = 'ruby ../rb/link.parser.rb';
-let cmdStr2 = 'ruby ../rb/antibiotics.parser.rb';
-let cmdStr3 = 'ruby ../rb/index.rb';
+const exec = require('child_process').exec;
+let cmdStr = 'cat parser4data.rollup.js | wc -l';
+let cmdStr1 = "ruby ../rb/link.parser.rb ";
+let cmdStr2 = "ruby ../rb/antibiotics.parser.rb ";
+let cmdStr3 = "ruby ../rb/index.rb ";
 
 
-// exec(cmdStr, function(err, stdout, stderr) {
-//     if (err) {
 
-//         console.error('err:' + stderr);
-
-//     } else {
-
-//         // var data = JSON.parse(stdout);
-//         // console.log('stdout:' + stdout);
-//         output = stdout;
-//         // output = JSON.parse(stdout);
-
-//     }
-// });
-
-// output = execSync(cmdStr1);
-// output = execSync(cmdStr2);
-
-output = execSync(cmdStr3);
-
-// module.exports = JSON.parse(output.toString())
+// some dirty without zeroMQ
 module.exports = {
     linkParse: function(rawData) {
-      execSync(cmdStr3)
-      console.log(rawData)
+
+        // const server = http.createServer((req, res) => {
+        //     res.writeHead(200, { 'Content-Type': 'application/json' });
+        //     res.end(JSON.stringify(rawData));
+
+        // }).listen(8080)
+
+        let res = execSync("ruby ../rb/link.parser.rb "+JSON.stringify(rawData))
+
+
+        console.log(res.toString())
+
+        // server.close()
+            // execSync(cmdStr);
+            // console.log(res.toString())
+            // console.log(cmdStr1+JSON.stringify(rawData))
     },
     antibioticsParse: function(rawData) {
-      execSync(cmdStr3)
+        execSync(cmdStr3)
     }
 }
