@@ -1,0 +1,7 @@
+{
+    "name": "parser4data-cpp",
+    "author": "fanyer",
+    "engines": {
+        "node": ">=0.8"
+    }
+}
