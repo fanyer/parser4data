@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@pkgo.in:itg/parser4data.git"
+    "url": "git@pgithub.com:fanyer/parser4data.git"
   },
   "dependencies": {
     "babel-core": "^6.22.1",
@@ -19,7 +19,6 @@
     "css-loader": "0.26.1",
     "d3-array": "^1.0.1",
     "d3-format": "^1.0.2",
-    "d3-sankey": "git+ssh://git@pkgo.in:fanyer/d3-sankey-custom.git",
     "d3-scale": "^1.0.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "jquery": "^3.1.1",
